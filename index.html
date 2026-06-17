@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Talk Money To Me</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#070709;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND GLOW */
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,120,40,0.18), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,180,90,0.12), transparent 45%);
+  animation: floatGlow 10s ease-in-out infinite alternate;
+  z-index:-1;
+}
+
+@keyframes floatGlow{
+  from { transform:scale(1); }
+  to { transform:scale(1.1); }
+}
+
+/* MAIN WRAPPER */
+.container{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:60px 20px;
+  text-align:center;
+}
+
+/* TITLE */
+h1{
+  font-size:clamp(40px,6vw,80px);
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+
+.sub{
+  max-width:600px;
+  opacity:0.75;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:60px;
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  width:100%;
+  max-width:900px;
+}
+
+.card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:22px;
+  padding:30px;
+  text-align:left;
+  cursor:pointer;
+  transition:0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,140,60,0.5);
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* subtle glow inside card */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-50px;
+  background:radial-gradient(circle at top left, rgba(255,140,60,0.15), transparent 60%);
+  opacity:0;
+  transition:0.3s;
+}
+
+.card:hover::before{
+  opacity:1;
+}
+
+.card h2{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.card p{
+  opacity:0.7;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+/* TAG */
+.tag{
+  display:inline-block;
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.1);
+  opacity:0.8;
+  margin-bottom:15px;
+}
+
+/* BUTTON */
+button{
+  background:#ff6a2a;
+  border:none;
+  color:white;
+  padding:12px 18px;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:500;
+  transition:0.3s ease;
+}
+
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 30px rgba(255,106,42,0.3);
+}
+
+/* FOOTER NOTE */
+.footer{
+  margin-top:50px;
+  font-size:12px;
+  opacity:0.4;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+<h1>Talk Money To Me</h1>
+
+<p class="sub">
+Money is not silent.
+It reacts to your emotions, your stress, your decisions.
+This is where you start to understand what it is saying about you.
+</p>
+
+<div class="grid">
+
+<!-- MONEY MOOD -->
+<div class="card" onclick="goMood()">
+
+<div class="tag">Understand You</div>
+
+<h2>Money Mood</h2>
+
+<p>
+Discover how your emotional state shapes your spending, saving, and decisions.
+</p>
+
+<button>Explore Money Mood</button>
+
+</div>
+
+<!-- MONEY LEAKS -->
+<div class="card" onclick="goLeaks()">
+
+<div class="tag">Find Your Leaks</div>
+
+<h2>Money Leaks</h2>
+
+<p>
+See where money quietly leaves your life without you noticing.
+</p>
+
+<button>Find My Leaks</button>
+
+</div>
+
+</div>
+
+<div class="footer">
+Part of Talk Money To Me • Money Mentor Ecosystem
+</div>
+
+</div>
+
+<script>
+
+function goMood(){
+  window.location.href = "https://moneymood-one.vercel.app/";
+}
+
+function goLeaks(){
+  window.location.href = "https://moneyleaks-silk.vercel.app/";
+}
+
+</script>
+
+</body>
+</html>
